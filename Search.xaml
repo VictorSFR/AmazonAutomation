@@ -1,0 +1,302 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Search" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Search" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>733,1963</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Search_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="44">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Search" sap:VirtualizedContainerService.HintSize="476,1898" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="sd:DataColumn" Name="Resultado" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="434,257" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[&quot;https://www.amazon.com.br/s?k=+&quot;+in_Search.Replace(&quot; &quot;,&quot;+&quot;)]">
+      <ui:OpenBrowser.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,158" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'Amazoncom Page'" sap:VirtualizedContainerService.HintSize="434,344" sap2010:WorkflowViewState.IdRef="BrowserScope_4" InformativeScreenshot="9da2f2f3c87ddda7304b2ad1e057bc0d" Selector="&lt;html title='Amazon.com.br : Mi 9' /&gt;">
+                <ui:BrowserScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data 'DIV  search'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl class='s-desktop-width-max s-desktop-content sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='rush-component s-latency-cf-section' tag='span' idx='1' /&gt;&lt;webctrl class='s-main-slot s-result-list s-search-results sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32' tag='div' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results' tag='span' idx='1' /&gt;&lt;webctrl class='s-expand-height s-include-content-margin s-border-bottom s-latency-cf-section' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-medium' tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column attr='text' name='Name' exact='1'&gt;&lt;webctrl class='s-desktop-width-max s-desktop-content sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='rush-component s-latency-cf-section' tag='span' idx='1' /&gt;&lt;webctrl class='s-main-slot s-result-list s-search-results sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32' tag='div' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results' tag='span' idx='1' /&gt;&lt;webctrl class='s-expand-height s-include-content-margin s-border-bottom s-latency-cf-section' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-medium' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-none a-spacing-top-small' tag='div' idx='1' /&gt;&lt;webctrl class='a-size-mini a-spacing-none a-color-base s-line-clamp-4' tag='h2' idx='1' /&gt;&lt;webctrl class='a-link-normal a-text-normal' tag='a' idx='1' /&gt;&lt;webctrl class='a-size-base-plus a-color-base a-text-normal' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column attr='text' name='Currency' exact='1'&gt;&lt;webctrl class='s-desktop-width-max s-desktop-content sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='rush-component s-latency-cf-section' tag='span' idx='1' /&gt;&lt;webctrl class='s-main-slot s-result-list s-search-results sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32' tag='div' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results' tag='span' idx='1' /&gt;&lt;webctrl class='s-expand-height s-include-content-margin s-border-bottom s-latency-cf-section' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-medium' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-none a-spacing-top-small' tag='div' idx='2' /&gt;&lt;webctrl class='a-row a-size-base a-color-base' tag='div' idx='1' /&gt;&lt;webctrl class='a-row' tag='div' idx='1' /&gt;&lt;webctrl class='a-row' tag='div' idx='1' /&gt;&lt;webctrl class='a-size-base a-link-normal a-text-normal' tag='a' idx='1' /&gt;&lt;webctrl class='a-price' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='a-price-symbol' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column attr='text' name='Integer' exact='1'&gt;&lt;webctrl class='s-desktop-width-max s-desktop-content sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='rush-component s-latency-cf-section' tag='span' idx='1' /&gt;&lt;webctrl class='s-main-slot s-result-list s-search-results sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32' tag='div' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results' tag='span' idx='1' /&gt;&lt;webctrl class='s-expand-height s-include-content-margin s-border-bottom s-latency-cf-section' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-medium' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-none a-spacing-top-small' tag='div' idx='2' /&gt;&lt;webctrl class='a-row a-size-base a-color-base' tag='div' idx='1' /&gt;&lt;webctrl class='a-row' tag='div' idx='1' /&gt;&lt;webctrl class='a-row' tag='div' idx='1' /&gt;&lt;webctrl class='a-size-base a-link-normal a-text-normal' tag='a' idx='1' /&gt;&lt;webctrl class='a-price' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='a-price-whole' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column attr='text' name='Decimals' exact='1'&gt;&lt;webctrl class='s-desktop-width-max s-desktop-content sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='rush-component s-latency-cf-section' tag='span' idx='1' /&gt;&lt;webctrl class='s-main-slot s-result-list s-search-results sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32' tag='div' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results' tag='span' idx='1' /&gt;&lt;webctrl class='s-expand-height s-include-content-margin s-border-bottom s-latency-cf-section' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-medium' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-none a-spacing-top-small' tag='div' idx='2' /&gt;&lt;webctrl class='a-row a-size-base a-color-base' tag='div' idx='1' /&gt;&lt;webctrl class='a-row' tag='div' idx='1' /&gt;&lt;webctrl class='a-row' tag='div' idx='1' /&gt;&lt;webctrl class='a-size-base a-link-normal a-text-normal' tag='a' idx='1' /&gt;&lt;webctrl class='a-price' tag='span' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl class='a-price-fraction' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column attr='href' name='Link' exact='1'&gt;&lt;webctrl class='s-desktop-width-max s-desktop-content sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-20-of-24 sg-col-28-of-32 sg-col-16-of-20 sg-col sg-col-32-of-36 sg-col-8-of-12 sg-col-12-of-16 sg-col-24-of-28' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='rush-component s-latency-cf-section' tag='span' idx='1' /&gt;&lt;webctrl class='s-main-slot s-result-list s-search-results sg-row' tag='div' idx='1' /&gt;&lt;webctrl class='sg-col-4-of-24 sg-col-4-of-12 sg-col-4-of-36 s-result-item s-asin sg-col-4-of-28 sg-col-4-of-16 sg-col sg-col-4-of-20 sg-col-4-of-32' tag='div' /&gt;&lt;webctrl class='sg-col-inner' tag='div' idx='1' /&gt;&lt;webctrl class='celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results' tag='span' idx='1' /&gt;&lt;webctrl class='s-expand-height s-include-content-margin s-border-bottom s-latency-cf-section' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-medium' tag='div' idx='1' /&gt;&lt;webctrl class='a-section a-spacing-none a-spacing-top-small' tag='div' idx='1' /&gt;&lt;webctrl class='a-size-mini a-spacing-none a-color-base s-line-clamp-4' tag='h2' idx='1' /&gt;&lt;webctrl class='a-link-normal a-text-normal' tag='a' idx='1' /&gt;&lt;webctrl class='a-size-base-plus a-color-base a-text-normal' tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="100" NextLinkSelector="&lt;webctrl aaname='Próximo→' parentid='search' tag='A' /&gt;" SimulateClick="True">
+                        <ui:ExtractData.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="bc0f9a2daefa1648f58e76b61390885c" Selector="&lt;webctrl id='search' tag='DIV' /&gt;" WaitForReady="COMPLETE">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                          </ui:Target>
+                        </ui:ExtractData.Target>
+                      </ui:ExtractData>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:BrowserScope.Body>
+              </ui:BrowserScope>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </ui:OpenBrowser.Body>
+    </ui:OpenBrowser>
+    <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[ExtractDataTable]" Delimitator="Comma" DisplayName="Write CSV" FilePath="C:\Users\supor\Documents\UiPath\AmazonAutomation\DataTable\Test.csv" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" />
+    <InvokeMethod sap2010:Annotation.AnnotationText="" DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="434,165" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
+      <InvokeMethod.Result>
+        <OutArgument x:TypeArguments="sd:DataColumn">[Resultado]</OutArgument>
+      </InvokeMethod.Result>
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sd:DataColumnCollection">[ExtractDataTable.Columns]</InArgument>
+      </InvokeMethod.TargetObject>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <InArgument x:TypeArguments="x:String">Soma</InArgument>
+      <InArgument x:TypeArguments="s:Type">[System.Type.GetType("System.String")]</InArgument>
+      <InArgument x:TypeArguments="x:String">Integer+Decimals</InArgument>
+    </InvokeMethod>
+    <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,59" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[ExtractDataTable]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["Mi 9"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+          <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="Or" Operator="NOTEMPTY">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Soma"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Currency"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Link"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Soma"]</InArgument>
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[ExtractDataTable]" Delimitator="Comma" DisplayName="Write CSV" FilePath="C:\Users\supor\Documents\UiPath\AmazonAutomation\DataTable\Test.csv" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="WriteCsvFile_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WriteCsvFile>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,185" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReadCsvFile Encoding="{x:Null}" sap2010:Annotation.AnnotationText="Lendo o CSV e passando para uma variável DataTable." DataTable="[ExtractDataTable]" Delimitator="Comma" DisplayName="Read CSV" FilePath="DataTable\Test.csv" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ReadCsvFile>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[ExtractDataTable.Columns(4).ReadOnly]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Editando coluna de preços para converter valores para Double." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[ExtractDataTable.Rows]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[item.Item(3)]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object">[item.Item(3).ToString.Replace(".","")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[item.Item(3)]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object">[item.Item(3).ToString.Replace(",",".")]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <ui:AddDataColumn x:TypeArguments="x:Double" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" sap2010:Annotation.AnnotationText="Criando coluna Price do tipo Double." ColumnName="Price" DataTable="[ExtractDataTable]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="434,64" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AddDataColumn>
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[row(4)]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object">[Convert.ToDouble(row.Item(3))]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Price" DataTable="[ExtractDataTable]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="SortDataTable_2" Order="Decending" OutputDataTable="[ExtractDataTable]" SortOrder="Descending" />
+    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="434,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Remove">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sd:DataColumnCollection">[ExtractDataTable.Columns]</InArgument>
+      </InvokeMethod.TargetObject>
+      <InArgument x:TypeArguments="x:String">Soma</InArgument>
+    </InvokeMethod>
+    <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[ExtractDataTable]" Delimitator="Semicolon" DisplayName="Write CSV" FilePath="C:\Users\supor\Documents\UiPath\AmazonAutomation\DataTable\Test.csv" sap:VirtualizedContainerService.HintSize="434,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_4" />
+  </Sequence>
+</Activity>
